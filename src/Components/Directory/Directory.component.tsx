@@ -1,7 +1,7 @@
 import './directory.styles.scss';
 
-import { Category } from '../Models/category';
-import CategoryItem from '../Components/CategoryItem/category-item.component';
+import { Category } from '@models/category';
+import CategoryItem from './../CategoryItem/CategoryItem.component';
 import React from 'react';
 
 export default function Directory({ categories }: { categories: Category[] }) {
