@@ -1,5 +1,6 @@
 import { Category } from '@models/category';
 import Directory from './../../Components/Directory/Directory.component';
+import { Outlet } from 'react-router-dom';
 import React from 'react';
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
 		},
 		{
 			id: 4,
-			title: 'womens',
+			title: 'women',
 			imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
 		},
 		{
@@ -30,5 +31,10 @@ export default function Home() {
 			imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
 		},
 	];
-	return <Directory categories={categories} />;
+	return (
+		<div>
+			<Directory categories={categories} />
+			<Outlet />
+		</div>
+	);
 }
