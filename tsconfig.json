@@ -16,7 +16,7 @@
 		"noEmit": true,
 		"jsx": "react-jsx",
 		"paths": {
-			"@models/*": ["src/models/*"]
+			"@models/*": ["src/Models/*"]
 		}
 	},
 	"include": ["src"]

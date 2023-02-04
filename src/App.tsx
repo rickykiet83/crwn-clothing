@@ -1,5 +1,5 @@
-import { Category } from '@models/category';
-import CategoryItem from './components/category-item/category-item.component';
+import { Category } from './Models/category';
+import Directory from './Directory/directory.component';
 import React from 'react';
 
 const App = () => {
@@ -30,13 +30,7 @@ const App = () => {
 			imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
 		},
 	];
-	return (
-		<div className='categories-container'>
-			{categories.map((category) => (
-				<CategoryItem key={category.id} category={category} />
-			))}
-		</div>
-	);
+	return <Directory categories={categories} />;
 };
 
 export default App;
