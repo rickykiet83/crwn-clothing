@@ -1,4 +1,6 @@
-import { Category } from './Models/category';
+import './categories.styles.scss';
+
+import { Category } from '@models/category';
 import React from 'react';
 
 const App = () => {
@@ -26,11 +28,11 @@ const App = () => {
 	];
 	return (
 		<div className='categories-container'>
-			{categories.map((category) => (
-				<div key={category.id} className='category-container'>
+			{categories.map(({ title, id }) => (
+				<div key={id} className='category-container'>
 					<div className='background-image' />
 					<div className='category-body-container'>
-						<h2>{category.title}</h2>
+						<h2>{title}</h2>
 						<p>Shop Now</p>
 					</div>
 				</div>
