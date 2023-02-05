@@ -18,7 +18,8 @@
 		"jsx": "react-jsx",
 		"paths": {
 			"@models/*": ["Models/*"],
-			"@components/*": ["Components/*"]
+			"@components/*": ["Components/*"],
+			"@utils/*": ["utils/*"]
 		}
 	},
 	"include": ["src"]
