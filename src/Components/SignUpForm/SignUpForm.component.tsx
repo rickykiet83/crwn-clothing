@@ -1,6 +1,8 @@
 import './sign-up-form.styles.scss';
 
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
+
+import { createAuthUserWithEmailAndPassword } from './../../utils/firebase/firebase.utils';
 
 export default function SignUpForm() {
 	const defaultFormFields = {
@@ -11,8 +13,11 @@ export default function SignUpForm() {
 	};
 
 	const [formFields, setFormFields] = useState(defaultFormFields);
-
 	const { displayName, email, password, confirmPassword } = formFields;
+
+	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+	};
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
@@ -24,7 +29,7 @@ export default function SignUpForm() {
 		<div className='sign-up-container'>
 			<h2>Don't have an account?</h2>
 			<span>Sign up with your email and password</span>
-			<form onSubmit={() => {}}>
+			<form onSubmit={handleSubmit}>
 				<label>Display Name</label>
 				<input
 					required
