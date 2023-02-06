@@ -1,6 +1,6 @@
 import './sign-in-form.styles.scss';
 
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useContext, useState } from 'react';
 import {
 	createUserDocumentFromAuth,
 	signInAuthUserWithEmailAndPassword,
@@ -10,6 +10,7 @@ import {
 import { BUTTON_TYPE_CLASSES } from '../Button/Button.component';
 import Button from '../Button/Button.component';
 import FormInput from '../FormInput/FormInput.component';
+import { UserContext } from 'contexts/User.context';
 
 export default function SignInForm() {
 	const defaultFormFields = {
@@ -20,6 +21,8 @@ export default function SignInForm() {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 
+	const { setCurrentUser } = useContext(UserContext);
+
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
@@ -28,8 +31,7 @@ export default function SignInForm() {
 				email,
 				password
 			);
-			console.log(response);
-
+			setCurrentUser(response?.user);
 			resetFormFields();
 		} catch (error: any) {
 			switch (error.code) {
