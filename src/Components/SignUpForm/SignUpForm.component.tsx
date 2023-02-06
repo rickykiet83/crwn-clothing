@@ -6,6 +6,8 @@ import {
 	createUserDocumentFromAuth,
 } from './../../utils/firebase/firebase.utils';
 
+import { BUTTON_TYPE_CLASSES } from './../Button/Button.component';
+import Button from './../Button/Button.component';
 import FormInput from './../FormInput/FormInput.component';
 
 export default function SignUpForm() {
@@ -91,8 +93,9 @@ export default function SignUpForm() {
 					label='Confirm Password'
 					value={confirmPassword}
 				/>
-
-				<button type='submit'>Sign Up</button>
+				<Button buttonType={BUTTON_TYPE_CLASSES.base} type='submit'>
+					Sign Up
+				</Button>
 			</form>
 		</div>
 	);
