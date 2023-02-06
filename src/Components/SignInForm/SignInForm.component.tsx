@@ -31,7 +31,19 @@ export default function SignInForm() {
 			console.log(response);
 
 			resetFormFields();
-		} catch (error: any) {}
+		} catch (error: any) {
+			switch (error.code) {
+				case 'auth/user-not-found':
+					alert('no user associated with this email');
+					break;
+				case 'auth/wrong-password':
+					alert('incorrect password or email');
+					break;
+
+				default:
+					console.log(error);
+			}
+		}
 	};
 
 	const resetFormFields = () => {
@@ -75,6 +87,7 @@ export default function SignInForm() {
 						Sign In
 					</Button>
 					<Button
+						type='button'
 						onClick={signInWithGoogle}
 						buttonType={BUTTON_TYPE_CLASSES.google}
 					>
