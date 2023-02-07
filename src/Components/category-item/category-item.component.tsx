@@ -1,6 +1,6 @@
 import './category-item.styles.scss';
 
-import { Category } from '@models/category';
+import { Category } from './../../models/category';
 
 const CategoryItem = ({ category }: { category: Category }) => {
 	return (
