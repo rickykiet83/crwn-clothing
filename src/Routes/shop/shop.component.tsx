@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 
 import { Product } from '@models/product';
-import SHOP_DATA from './../../shop-data.json';
+import { ProductsContext } from 'contexts/product.context';
 
-export default class Shop extends Component {
-	render() {
-		return (
-			<div>
-				{SHOP_DATA.map((product: Product) => (
-					<div key={product.id}>
-						<h1>{product.name}</h1>
-					</div>
-				))}
-			</div>
-		);
-	}
+export default function Shop() {
+	const { products } = useContext(ProductsContext);
+
+	return (
+		<div>
+			{products.map((product: Product) => (
+				<div key={product.id}>
+					<h1>{product.name}</h1>
+				</div>
+			))}
+		</div>
+	);
 }
