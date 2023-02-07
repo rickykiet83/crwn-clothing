@@ -7,7 +7,7 @@ import {
 	signInWithGooglePopup,
 } from '../../utils/firebase/firebase.utils';
 
-import { BUTTON_TYPE_CLASSES } from '../button/button.component';
+import { BUTTON_TYPE_CLASSES } from '@models';
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 

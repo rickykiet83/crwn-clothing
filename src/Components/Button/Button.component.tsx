@@ -2,12 +2,6 @@ import './button.styles.scss';
 
 import React, { ButtonHTMLAttributes } from 'react';
 
-export enum BUTTON_TYPE_CLASSES {
-	base = 'base',
-	google = 'google-sign-in',
-	inverted = 'inverted',
-}
-
 const Button: React.FC<
 	{
 		buttonType: string;
