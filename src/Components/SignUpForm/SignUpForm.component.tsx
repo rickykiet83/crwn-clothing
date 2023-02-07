@@ -1,4 +1,4 @@
-import './sign-up-form.styles.scss';
+import './SignUpForm.styles.scss';
 
 import React, { FormEvent, useState } from 'react';
 import {
