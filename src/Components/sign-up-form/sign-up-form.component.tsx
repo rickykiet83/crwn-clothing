@@ -1,14 +1,14 @@
-import './SignUpForm.styles.scss';
+import './sign-up-form.styles.scss';
 
 import React, { FormEvent, useState } from 'react';
 import {
 	createAuthUserWithEmailAndPassword,
 	createUserDocumentFromAuth,
-} from './../../utils/firebase/firebase.utils';
+} from '../../utils/firebase/firebase.utils';
 
-import { BUTTON_TYPE_CLASSES } from './../Button/Button.component';
-import Button from './../Button/Button.component';
-import FormInput from './../FormInput/FormInput.component';
+import { BUTTON_TYPE_CLASSES } from '../button/button.component';
+import Button from '../button/button.component';
+import FormInput from './../form-input/form-input.component';
 
 export default function SignUpForm() {
 	const defaultFormFields = {

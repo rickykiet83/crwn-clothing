@@ -4,8 +4,8 @@ import { Link, Outlet } from 'react-router-dom';
 
 import { ReactComponent as CrwnLogo } from './../../assets/crown.svg';
 import { Fragment } from 'react';
-import { UserContext } from 'contexts/User.context';
-import { signOutUser } from './../../utils/firebase/firebase.utils';
+import { UserContext } from 'contexts/user.context';
+import { signOutUser } from '../../utils/firebase/firebase.utils';
 import { useContext } from 'react';
 
 export default function Navigation() {

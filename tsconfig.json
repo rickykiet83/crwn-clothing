@@ -17,8 +17,8 @@
 		"noEmit": true,
 		"jsx": "react-jsx",
 		"paths": {
-			"@models/*": ["Models/*"],
-			"@components/*": ["Components/*"],
+			"@models/*": ["models/*"],
+			"@components/*": ["components/*"],
 			"@utils/*": ["utils/*"]
 		}
 	},

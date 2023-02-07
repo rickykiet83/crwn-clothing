@@ -1,5 +1,5 @@
 import { Category } from '@models/category';
-import Directory from './../../Components/Directory/Directory.component';
+import Directory from '../../components/directory/directory.component';
 import { Outlet } from 'react-router-dom';
 import React from 'react';
 

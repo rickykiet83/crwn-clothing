@@ -1,14 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Authentication from 'Routes/Authentication/Authentication.component';
-import Home from './Routes/Home/Home.component';
-import Navigation from 'Routes/Navigation/Navigation.component';
+import Authentication from 'routes/authentication/authentication.component';
+import Home from './routes/home/home.component';
+import Navigation from 'routes/navigation/navigation.component';
 import React from 'react';
-import SignUpForm from './Components/SignUpForm/SignUpForm.component';
-
-const Shop = () => {
-	return <h1>I am the shop page</h1>;
-};
+import Shop from 'routes/shop/shop.component';
 
 export default function App() {
 	return (

@@ -7,9 +7,9 @@ import {
 	signInWithGooglePopup,
 } from '../../utils/firebase/firebase.utils';
 
-import { BUTTON_TYPE_CLASSES } from '../Button/Button.component';
-import Button from '../Button/Button.component';
-import FormInput from '../FormInput/FormInput.component';
+import { BUTTON_TYPE_CLASSES } from '../button/button.component';
+import Button from '../button/button.component';
+import FormInput from '../form-input/form-input.component';
 
 export default function SignInForm() {
 	const defaultFormFields = {
