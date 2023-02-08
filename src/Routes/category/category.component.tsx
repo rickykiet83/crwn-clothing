@@ -1,6 +1,6 @@
 import './category.styles.scss';
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 
 import { CategoriesContext } from 'contexts/categories.context';
 import { Product } from '@models/product';
@@ -17,11 +17,14 @@ export default function Category() {
 	}, [category, categoriesMap]);
 
 	return (
-		<div className='category-container'>
-			{products &&
-				products.map((product: Product) => (
-					<ProductCard key={product.id} product={product} />
-				))}
-		</div>
+		<Fragment>
+			<h2 className='category-title'>{category?.toUpperCase()}</h2>
+			<div className='category-container'>
+				{products &&
+					products.map((product: Product) => (
+						<ProductCard key={product.id} product={product} />
+					))}
+			</div>
+		</Fragment>
 	);
 }
