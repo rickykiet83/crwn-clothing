@@ -1,5 +1,3 @@
-import './button.styles.scss';
-
 import {
 	BaseButton,
 	GoogleSignInButton,
