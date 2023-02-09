@@ -10,14 +10,14 @@ import {
 	onAuthStateChangedListener,
 } from './../utils/firebase/firebase.utils';
 
-export type UserContextType = {
-	currentUser: null;
+type UserContextType = {
+	currentUser: any;
 	setCurrentUser: Dispatch<SetStateAction<null | any>>;
 };
 // as the actual value you want to access
 export const UserContext = createContext<UserContextType>({
 	currentUser: null,
-	setCurrentUser: () => null,
+	setCurrentUser: () => {},
 });
 
 export const UserProvider = ({ children }: { children: any }) => {
@@ -35,9 +35,5 @@ export const UserProvider = ({ children }: { children: any }) => {
 		return unsubscribe;
 	}, []);
 
-	return (
-		<UserContext.Provider value={{ currentUser, setCurrentUser }}>
-			{children}
-		</UserContext.Provider>
-	);
+	return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
