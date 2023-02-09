@@ -12,7 +12,7 @@ import {
 
 type UserContextType = {
 	currentUser: any;
-	setCurrentUser: Dispatch<SetStateAction<null | any>>;
+	setCurrentUser: Dispatch<SetStateAction<any>>;
 };
 // as the actual value you want to access
 export const UserContext = createContext<UserContextType>({
