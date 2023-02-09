@@ -6,8 +6,8 @@ import {
 	useState,
 } from 'react';
 
-import { CartItemModel } from '@models/cart-item.model';
-import { Product } from '@models/product';
+import { CartItemModel } from './../models/cart-item.model';
+import { Product } from './../models/product';
 
 const addCartItem = (cartItems: CartItemModel[], productToAdd: Product) => {
 	// find if cartItems contains productToAdd
