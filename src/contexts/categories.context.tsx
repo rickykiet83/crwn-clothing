@@ -1,7 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
 
-import PRODUCTS from '../shop-data.json';
-import { Product } from '@models/product';
 import { getCategoriesAndDocuments } from '../utils/firebase/firebase.utils';
 
 type CategoriesContextType = {
