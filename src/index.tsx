@@ -6,7 +6,7 @@ import { CartProvider } from 'contexts/cart.context';
 import { CategoriesProvider } from 'contexts/categories.context';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { UserProvider } from './contexts/user.context';
+import { UserProvider } from 'contexts/user.context';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
