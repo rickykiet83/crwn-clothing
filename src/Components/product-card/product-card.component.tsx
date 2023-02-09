@@ -2,7 +2,7 @@ import './product-card.styles.scss';
 
 import { BUTTON_TYPE_CLASSES } from './../../models/button-type.enum';
 import Button from './../button/button.component';
-import { CartContext } from 'contexts/cart.context';
+import { CartContext } from './../../contexts/cart.context';
 import { Product } from '@models/product';
 import React from 'react';
 import { useContext } from 'react';

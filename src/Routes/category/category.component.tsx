@@ -2,7 +2,7 @@ import './category.styles.scss';
 
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 
-import { CategoriesContext } from 'contexts/categories.context';
+import { CategoriesContext } from './../../contexts/categories.context';
 import { Product } from '@models/product';
 import ProductCard from './../../components/product-card/product-card.component';
 import { useParams } from 'react-router-dom';
