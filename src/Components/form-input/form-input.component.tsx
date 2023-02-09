@@ -1,4 +1,4 @@
-import './form-input.styles.scss';
+import { FormInputLabel, Group, Input } from './form-input.styles';
 
 import { InputHTMLAttributes } from 'react';
 
@@ -6,18 +6,20 @@ const FormInput: React.FC<
 	{ label: string } & InputHTMLAttributes<HTMLInputElement>
 > = ({ label, ...otherProps }) => {
 	return (
-		<div className='group'>
-			<input className='form-input' {...otherProps} />
+		<Group>
+			<Input {...otherProps} />
 			{label && (
-				<label
-					className={`${
-						otherProps.value?.toString().length ? 'shrink' : ''
-					} form-input-label`}
+				<FormInputLabel
+					shrink={Boolean(
+						otherProps.value &&
+							typeof otherProps.value === 'string' &&
+							otherProps.value.length
+					)}
 				>
 					{label}
-				</label>
+				</FormInputLabel>
 			)}
-		</div>
+		</Group>
 	);
 };
 
