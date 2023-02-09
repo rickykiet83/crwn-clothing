@@ -2,8 +2,8 @@ import './checkout-item.styles.scss';
 
 import React, { useContext } from 'react';
 
-import { CartContext } from './../../contexts/cart.context';
-import { CartItemModel } from './../../models/cart-item.model';
+import { CartContext } from 'contexts/cart.context';
+import { CartItemModel } from '@models/cart-item.model';
 
 export default function CheckoutItem({
 	cartItem,

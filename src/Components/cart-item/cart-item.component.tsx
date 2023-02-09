@@ -1,6 +1,6 @@
 import './cart-item.styles.scss';
 
-import { CartItemModel } from './../../models/cart-item.model';
+import { CartItemModel } from '@models/cart-item.model';
 import React from 'react';
 
 export default function CartItem({ cartItem }: { cartItem: CartItemModel }) {

@@ -1,6 +1,6 @@
 import './directory.styles.scss';
 
-import { Category } from './../../models/category';
+import { Category } from '@models/category';
 import DirectoryItem from '../directory-item/directory-item.component';
 import React from 'react';
 

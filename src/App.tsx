@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Authentication from './routes/authentication/authentication.component';
-import Checkout from './routes/checkout/checkout.component';
+import Authentication from 'routes/authentication/authentication.component';
+import Checkout from 'routes/checkout/checkout.component';
 import Home from './routes/home/home.component';
-import Navigation from './routes/navigation/navigation.component';
+import Navigation from 'routes/navigation/navigation.component';
 import React from 'react';
-import Shop from './routes/shop/shop.component';
+import Shop from 'routes/shop/shop.component';
 
 export default function App() {
 	return (

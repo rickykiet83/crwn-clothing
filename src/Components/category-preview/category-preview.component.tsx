@@ -1,7 +1,7 @@
 import './category-preview.styles.scss';
 
 import { Link } from 'react-router-dom';
-import { Product } from './../../models/product';
+import { Product } from '@models/product';
 import ProductCard from './../product-card/product-card.component';
 import React from 'react';
 

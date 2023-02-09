@@ -6,9 +6,9 @@ import {
 import React, { useContext } from 'react';
 
 import Button from './../button/button.component';
-import { CartContext } from './../../contexts/cart.context';
+import { CartContext } from 'contexts/cart.context';
 import CartItem from './../cart-item/cart-item.component';
-import { CartItemModel } from './../../models/cart-item.model';
+import { CartItemModel } from '@models/cart-item.model';
 import { useNavigate } from 'react-router-dom';
 
 export default function CartDropdown() {
