@@ -1,4 +1,3 @@
-import { Link, Outlet } from 'react-router-dom';
 import {
 	LogoContainer,
 	NavLink,
@@ -11,6 +10,7 @@ import CartDropdown from '@components/cart-dropdown/cart-dropdown.component';
 import CartIcon from '@components/cart-icon/cart-icon.component';
 import { ReactComponent as CrwnLogo } from './../../assets/crown.svg';
 import { Fragment } from 'react';
+import { Outlet } from 'react-router-dom';
 import { UserContext } from '@contexts/user.context';
 import { signOutUser } from '@utils/firebase/firebase.utils';
 import { useContext } from 'react';

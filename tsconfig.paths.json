@@ -5,7 +5,9 @@
 			"@models/*": ["./models/*"],
 			"@components/*": ["./components/*"],
 			"@utils/*": ["./utils/*"],
-			"@contexts/*": ["./contexts/*"]
+			"@contexts/*": ["./contexts/*"],
+			"@routes/*": ["./routes/*"],
+			"@store/*": ["./store/*"]
 		}
 	}
 }
