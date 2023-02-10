@@ -1,8 +1,5 @@
 import { AnyAction } from 'redux';
-
-export const USER_ACTION_TYPES = {
-  SET_CURRENT_USER: 'SET_CURRENT_USER',
-};
+import { USER_ACTION_TYPES } from './user.types';
 
 export type UserState = {
   readonly currentUser: any | null;
@@ -30,3 +27,5 @@ export const userReducer = (state = INITIAL_STATE, action: AnyAction) => {
       return state;
   }
 };
+export { USER_ACTION_TYPES };
+

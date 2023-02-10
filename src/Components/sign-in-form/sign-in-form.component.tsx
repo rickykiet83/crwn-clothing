@@ -10,6 +10,7 @@ import {
 import { BUTTON_TYPE_CLASSES } from './../../models/button-type.enum';
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignInForm() {
 	const defaultFormFields = {
@@ -19,16 +20,15 @@ export default function SignInForm() {
 
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
+	const navigate = useNavigate();
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		try {
-			const response = await signInAuthUserWithEmailAndPassword(
-				email,
-				password
-			);
+			await signInAuthUserWithEmailAndPassword(email, password);
 			resetFormFields();
+			navigate('/');
 		} catch (error: any) {
 			switch (error.code) {
 				case 'auth/user-not-found':
