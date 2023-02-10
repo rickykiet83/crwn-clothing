@@ -4,19 +4,19 @@ import React, { Fragment, useEffect, useState } from 'react';
 
 import { Product } from '@models/product';
 import ProductCard from '@components/product-card/product-card.component';
-import { selectCategories } from '@store/category/category.selector';
+import { selectCategoriesMap } from '@store/category/category.selector';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function Category() {
 	const { category } = useParams();
-	const categories = useSelector(selectCategories);
 
-	const [products, setProducts] = useState([]);
+	const categoriesMap: any = useSelector(selectCategoriesMap);
+	const [products, setProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
-		setProducts(categories[category || '']);
-	}, [category, categories]);
+		setProducts(categoriesMap[category || '']);
+	}, [category, categoriesMap]);
 
 	return (
 		<Fragment>
