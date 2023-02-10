@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.0.0",
+    "@types/redux-logger": "^3.0.9",
     "craco-alias": "^3.0.1"
   }
 }
