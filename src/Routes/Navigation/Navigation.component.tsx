@@ -11,12 +11,13 @@ import CartIcon from '@components/cart-icon/cart-icon.component';
 import { ReactComponent as CrwnLogo } from './../../assets/crown.svg';
 import { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
-import { UserContext } from '@contexts/user.context';
+import { selectCurrentUser } from '@store/user/user.selector';
 import { signOutUser } from '@utils/firebase/firebase.utils';
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 export default function Navigation() {
-	const { currentUser } = useContext(UserContext);
+	const currentUser = useSelector(selectCurrentUser);
 	const { isCartOpen } = useContext(CartContext);
 
 	return (
