@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import logger from 'redux-logger'
 import { rootReducer } from '@store/root-reducer';
 import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
 
 declare global {
   interface Window {
@@ -14,13 +15,14 @@ declare global {
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user']
+  whitelist: ['cart']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middleWares = [
   process.env.NODE_ENV !== 'production' && logger,
+  thunk
 ].filter((middleware): middleware is Middleware => Boolean(middleware));
 
 
