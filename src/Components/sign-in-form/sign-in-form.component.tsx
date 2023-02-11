@@ -5,11 +5,11 @@ import {
 	createUserDocumentFromAuth,
 	signInAuthUserWithEmailAndPassword,
 	signInWithGooglePopup,
-} from '../../utils/firebase/firebase.utils';
+} from '@utils/firebase/firebase.utils';
 
-import { BUTTON_TYPE_CLASSES } from './../../models/button-type.enum';
-import Button from '../button/button.component';
-import FormInput from '../form-input/form-input.component';
+import { BUTTON_TYPE_CLASSES } from '@models/button-type.enum';
+import Button from '@components/button/button.component';
+import FormInput from '@components/form-input/form-input.component';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignInForm() {
