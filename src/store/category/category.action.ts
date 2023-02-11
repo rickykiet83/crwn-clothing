@@ -1,10 +1,8 @@
-import { AnyAction, Dispatch } from 'redux';
 import { Categories, mapCategories } from '@models/category';
 
 import { CATEGORIES_ACTION_TYPES } from './category.types';
 import { createAction } from '@utils/reducer/reducer.utils';
 import { getCategoriesAndDocuments } from '@utils/firebase/firebase.utils';
-import { useDispatch } from 'react-redux';
 
 export const setCategories = (categoriesArray: Categories[]) =>
   createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES, categoriesArray);

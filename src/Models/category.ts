@@ -13,7 +13,7 @@ export interface Categories {
   items: Product[];
 }
 
-export function mapCategories(data: DocumentData): Categories[] {
+export function mapCategories(data: DocumentData | Category[]): Categories[] {
   return data.map((cat: DocumentData) => {
     const categories: Categories = {
       items: cat.items,

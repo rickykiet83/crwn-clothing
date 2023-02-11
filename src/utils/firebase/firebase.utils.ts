@@ -11,6 +11,7 @@ import {
 } from 'firebase/auth';
 import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch } from 'firebase/firestore';
 
+import { Category } from '@models/category';
 import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
@@ -50,12 +51,12 @@ export const addCollectionAndDocuments = async (collectionKey: any, objectsToAdd
   console.log('done');
 };
 
-export const getCategoriesAndDocuments = async () => {
+export const getCategoriesAndDocuments = async (): Promise<Category[]> => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(docSnapshot => docSnapshot.data());
+  return querySnapshot.docs.map(docSnapshot => docSnapshot.data() as Category);
 }
 
 export const createUserDocumentFromAuth = async (userAuth: any, additionalInformation: any = {}) => {
