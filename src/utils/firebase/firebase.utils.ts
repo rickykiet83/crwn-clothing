@@ -1,6 +1,7 @@
 import {
   GoogleAuthProvider,
   NextOrObserver,
+  User,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -81,7 +82,7 @@ export const createUserDocumentFromAuth = async (userAuth: any, additionalInform
     }
   }
 
-  return userDocRef;
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email: string, password: string) => {
@@ -101,7 +102,7 @@ export const signOutUser = async () => await signOut(auth);
 export const onAuthStateChangedListener = (callback: NextOrObserver<any>) =>
   onAuthStateChanged(auth, callback);
 
-export const getCurrentUser = () => {
+export const getCurrentUser = (): Promise<User | null> => {
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
       auth,
