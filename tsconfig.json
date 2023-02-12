@@ -15,8 +15,9 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+		"noImplicitAny": false
 	},
-	"include": ["src"],
+	"include": ["src", "src/custom.d.ts"],
 	"extends": "./tsconfig.paths.json"
 }

@@ -2,6 +2,7 @@ import {
   GoogleAuthProvider,
   NextOrObserver,
   User,
+  UserCredential,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -92,7 +93,7 @@ export const createAuthUserWithEmailAndPassword = async (email: string, password
 }
 
 export const signInAuthUserWithEmailAndPassword = async (email: string, password: string) => {
-  if (!email || !password) return;
+  if (!email || !password) return null;
 
   return await signInWithEmailAndPassword(auth, email, password);
 }

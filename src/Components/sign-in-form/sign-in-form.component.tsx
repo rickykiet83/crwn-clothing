@@ -1,15 +1,12 @@
-import './sign-in-form.styles.scss';
-
+import { ButtonsContainer, SignInContainer } from './sign-in-form.styles';
 import React, { FormEvent, useState } from 'react';
-import {
-	createUserDocumentFromAuth,
-	signInAuthUserWithEmailAndPassword,
-	signInWithGooglePopup,
-} from '@utils/firebase/firebase.utils';
+import { emailSignInStart, googleSignInStart } from '@store/user/user.action';
 
 import { BUTTON_TYPE_CLASSES } from '@models/button-type.enum';
 import Button from '@components/button/button.component';
 import FormInput from '@components/form-input/form-input.component';
+import { signInAuthUserWithEmailAndPassword } from '@utils/firebase/firebase.utils';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignInForm() {
@@ -21,12 +18,13 @@ export default function SignInForm() {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		try {
-			await signInAuthUserWithEmailAndPassword(email, password);
+			dispatch(emailSignInStart(email, password));
 			resetFormFields();
 			navigate('/');
 		} catch (error: any) {
@@ -49,8 +47,7 @@ export default function SignInForm() {
 	};
 
 	const signInWithGoogle = async () => {
-		const { user } = await signInWithGooglePopup();
-		await createUserDocumentFromAuth(user);
+		dispatch(googleSignInStart());
 	};
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +57,7 @@ export default function SignInForm() {
 	};
 
 	return (
-		<div className='sign-in-container'>
+		<SignInContainer>
 			<h2>Already have an account?</h2>
 			<span>Sign in with your email and password</span>
 			<form onSubmit={handleSubmit}>
@@ -80,7 +77,7 @@ export default function SignInForm() {
 					label='Password'
 					value={password}
 				/>
-				<div className='buttons-container'>
+				<ButtonsContainer>
 					<Button type='submit' buttonType={BUTTON_TYPE_CLASSES.base}>
 						Sign In
 					</Button>
@@ -91,8 +88,8 @@ export default function SignInForm() {
 					>
 						Google Sign In
 					</Button>
-				</div>
+				</ButtonsContainer>
 			</form>
-		</div>
+		</SignInContainer>
 	);
 }
