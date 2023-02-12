@@ -1,12 +1,13 @@
 import { ButtonsContainer, SignInContainer } from './sign-in-form.styles';
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, Fragment, useState } from 'react';
 import { emailSignInStart, googleSignInStart } from '@store/user/user.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { BUTTON_TYPE_CLASSES } from '@models/button-type.enum';
 import Button from '@components/button/button.component';
 import FormInput from '@components/form-input/form-input.component';
-import { signInAuthUserWithEmailAndPassword } from '@utils/firebase/firebase.utils';
-import { useDispatch } from 'react-redux';
+import Spinner from '@components/spinner/spinner.component';
+import { selectUserIsLoading } from '@store/user/user.selector';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignInForm() {
@@ -17,6 +18,8 @@ export default function SignInForm() {
 
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
+	const isLoading = useSelector(selectUserIsLoading);
+
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -25,8 +28,8 @@ export default function SignInForm() {
 
 		try {
 			dispatch(emailSignInStart(email, password));
-			resetFormFields();
 			navigate('/');
+			resetFormFields();
 		} catch (error: any) {
 			switch (error.code) {
 				case 'auth/user-not-found':
@@ -57,39 +60,45 @@ export default function SignInForm() {
 	};
 
 	return (
-		<SignInContainer>
-			<h2>Already have an account?</h2>
-			<span>Sign in with your email and password</span>
-			<form onSubmit={handleSubmit}>
-				<FormInput
-					required
-					type='email'
-					onChange={handleChange}
-					name='email'
-					value={email}
-					label='Email'
-				/>
-				<FormInput
-					required
-					type='password'
-					onChange={handleChange}
-					name='password'
-					label='Password'
-					value={password}
-				/>
-				<ButtonsContainer>
-					<Button type='submit' buttonType={BUTTON_TYPE_CLASSES.base}>
-						Sign In
-					</Button>
-					<Button
-						type='button'
-						onClick={signInWithGoogle}
-						buttonType={BUTTON_TYPE_CLASSES.google}
-					>
-						Google Sign In
-					</Button>
-				</ButtonsContainer>
-			</form>
-		</SignInContainer>
+		<Fragment>
+			{isLoading ? (
+				<Spinner />
+			) : (
+				<SignInContainer>
+					<h2>Already have an account?</h2>
+					<span>Sign in with your email and password</span>
+					<form onSubmit={handleSubmit}>
+						<FormInput
+							required
+							type='email'
+							onChange={handleChange}
+							name='email'
+							value={email}
+							label='Email'
+						/>
+						<FormInput
+							required
+							type='password'
+							onChange={handleChange}
+							name='password'
+							label='Password'
+							value={password}
+						/>
+						<ButtonsContainer>
+							<Button type='submit' buttonType={BUTTON_TYPE_CLASSES.base}>
+								Sign In
+							</Button>
+							<Button
+								type='button'
+								onClick={signInWithGoogle}
+								buttonType={BUTTON_TYPE_CLASSES.google}
+							>
+								Google Sign In
+							</Button>
+						</ButtonsContainer>
+					</form>
+				</SignInContainer>
+			)}
+		</Fragment>
 	);
 }
