@@ -6,7 +6,7 @@ import {
 } from './button.styles';
 import React, { ButtonHTMLAttributes } from 'react';
 
-import { BUTTON_TYPE_CLASSES } from './../../models/button-type.enum';
+import { BUTTON_TYPE_CLASSES } from '@models/button-type.enum';
 
 const getButton = (buttonType: BUTTON_TYPE_CLASSES) =>
 	({
