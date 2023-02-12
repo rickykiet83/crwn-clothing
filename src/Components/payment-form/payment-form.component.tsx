@@ -7,8 +7,13 @@ import {
 import React, { FormEvent } from 'react';
 
 export default function PaymentForm() {
+	const stripe = useStripe();
+	const elements = useElements();
+
 	const paymentHandler = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+
+		if (!stripe || !elements) return;
 	};
 
 	return (
