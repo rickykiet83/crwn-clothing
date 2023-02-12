@@ -4,12 +4,14 @@ import { persistor, store } from '@store/store';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { Elements } from '@stripe/react-stripe-js';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Spinner from '@components/spinner/spinner.component';
 import reportWebVitals from './reportWebVitals';
+import { stripePromise } from '@utils/stripe/stripe.utils';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -19,7 +21,9 @@ root.render(
 		<Provider store={store}>
 			<PersistGate loading={<Spinner />} persistor={persistor}>
 				<BrowserRouter>
-					<App />
+					<Elements stripe={stripePromise}>
+						<App />
+					</Elements>
 				</BrowserRouter>
 			</PersistGate>
 		</Provider>
