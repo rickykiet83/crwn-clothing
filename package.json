@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.0.0",
+    "@types/react-stripe-elements": "^6.0.6",
     "@types/redux-logger": "^3.0.9",
     "babel-plugin-macros": "^3.1.0",
     "craco-alias": "^3.0.1"
