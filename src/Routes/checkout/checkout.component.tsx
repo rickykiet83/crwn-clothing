@@ -4,6 +4,7 @@ import { selectCartItems, selectCartTotal } from '@store/cart/cart.selector';
 
 import { CartItemModel } from '@models/cart-item.model';
 import CheckoutItem from '@components/checkout-item/checkout-item.component';
+import PaymentForm from '@components/payment-form/payment-form.component';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -35,6 +36,7 @@ export default function Checkout() {
 				return <CheckoutItem key={id} cartItem={cartItem} />;
 			})}
 			<span className='total'>Total: {cartTotal}</span>
+			<PaymentForm />
 		</div>
 	);
 }
