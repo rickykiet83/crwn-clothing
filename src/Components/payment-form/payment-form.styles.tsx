@@ -1,4 +1,4 @@
-import Button from '../button/button.component';
+import Button from '@components/button/button.component';
 import styled from 'styled-components';
 
 export const PaymentFormContainer = styled.div`
